@@ -1,0 +1,148 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP4X77lcYWfpSbzSAsAT9/0",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/YagoDinato/Aulas_PYTHON/blob/main/Exerc%C3%ADcio-08-ProjetocomVetoresipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "S8GdbrgWjOI7",
+        "outputId": "d0dc94e2-9381-4d04-bf16-1b6904070a6e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "==============================\n",
+            "       SISTEMA DE NOTAS       \n",
+            "==============================\n",
+            " 1 Inserir nota\n",
+            " 2 Média\n",
+            " 3 Aprovados / Reprovados\n",
+            " 4 Maior / Menor nota\n",
+            " 5 Sair\n",
+            "==============================\n",
+            "Insira a opção que você deseja: 1\n",
+            "Insira uma nota: 10\n",
+            "Nota adicionada!\n",
+            "\n",
+            "==============================\n",
+            "       SISTEMA DE NOTAS       \n",
+            "==============================\n",
+            " 1 Inserir nota\n",
+            " 2 Média\n",
+            " 3 Aprovados / Reprovados\n",
+            " 4 Maior / Menor nota\n",
+            " 5 Sair\n",
+            "==============================\n",
+            "Insira a opção que você deseja: 1\n",
+            "Insira uma nota: 5\n",
+            "Nota adicionada!\n",
+            "\n",
+            "==============================\n",
+            "       SISTEMA DE NOTAS       \n",
+            "==============================\n",
+            " 1 Inserir nota\n",
+            " 2 Média\n",
+            " 3 Aprovados / Reprovados\n",
+            " 4 Maior / Menor nota\n",
+            " 5 Sair\n",
+            "==============================\n",
+            "Insira a opção que você deseja: 5\n",
+            "Saindo do sistema...\n"
+          ]
+        }
+      ],
+      "source": [
+        "notas = []\n",
+        "\n",
+        "while True:\n",
+        "    print(\"\\n\" + \"=\"*30)\n",
+        "    print(f\"{' SISTEMA DE NOTAS':^30}\")\n",
+        "    print(\"=\"*30)\n",
+        "    print(\" 1 Inserir nota\")\n",
+        "    print(\" 2 Média\")\n",
+        "    print(\" 3 Aprovados / Reprovados\")\n",
+        "    print(\" 4 Maior / Menor nota\")\n",
+        "    print(\" 5 Sair\")\n",
+        "    print(\"=\"*30)\n",
+        "\n",
+        "    try:\n",
+        "        opcao = int(input(\"Insira a opção que você deseja: \"))\n",
+        "\n",
+        "        if opcao == 1:\n",
+        "            n = float(input(\"Insira uma nota: \"))\n",
+        "            notas.append(n)\n",
+        "            print(\"Nota adicionada!\")\n",
+        "\n",
+        "        elif opcao == 2:\n",
+        "            if len(notas) > 0:\n",
+        "                media = sum(notas) / len(notas)\n",
+        "                print(f\"Média da turma: {media:.2f}\")\n",
+        "            else:\n",
+        "                print(\"Nenhuma nota cadastrada.\")\n",
+        "\n",
+        "        elif opcao == 3:\n",
+        "            if len(notas) > 0:\n",
+        "                media = sum(notas) / len(notas)\n",
+        "                acima = 0\n",
+        "                abaixo = 0\n",
+        "                for n in notas:\n",
+        "                    if n >= 6:\n",
+        "                        acima += 1\n",
+        "                    else:\n",
+        "                        abaixo += 1\n",
+        "                print(f\"Alunos aprovados (>= 7): {acima}\")\n",
+        "                print(f\"Alunos reprovados (< 7): {abaixo}\")\n",
+        "            else:\n",
+        "                print(\"Nenhuma nota cadastrada.\")\n",
+        "\n",
+        "        elif opcao == 4:\n",
+        "            if len(notas) > 0:\n",
+        "                print(f\"A maior nota é: {max(notas)}\")\n",
+        "                print(f\"A menor nota é: {min(notas)}\")\n",
+        "            else:\n",
+        "                print(\"Nenhuma nota cadastrada.\")\n",
+        "\n",
+        "        elif opcao == 5:\n",
+        "            print(\"Saindo do sistema...\")\n",
+        "            break\n",
+        "\n",
+        "        else:\n",
+        "            print(\"Opção inválida!\")\n",
+        "\n",
+        "    except ValueError:\n",
+        "        print(\"Erro: Insira apenas números.\")"
+      ]
+    }
+  ]
+}
